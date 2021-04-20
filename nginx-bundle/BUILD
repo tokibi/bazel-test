@@ -3,17 +3,17 @@ load("@io_bazel_rules_docker//docker/package_managers:download_pkgs.bzl", "downl
 load("@io_bazel_rules_docker//docker/package_managers:install_pkgs.bzl", "install_pkgs")
 
 download_pkgs(
-  name = "nginx_pkgs",
-  image_tar = "@ubuntu1804//image",
-  packages = ["nginx"],
+    name = "nginx_pkgs",
+    image_tar = "@ubuntu1804//image",
+    packages = ["nginx"],
 )
 
 install_pkgs(
-  name = "nginx_image",
-  image_tar = "@ubuntu1804//image",
-  installables_tar = ":nginx_pkgs.tar",
-  installation_cleanup_commands = "rm -rf /var/lib/apt/lists/*",
-  output_image_name = "nginx_image",
+    name = "nginx_image",
+    image_tar = "@ubuntu1804//image",
+    installables_tar = ":nginx_pkgs.tar",
+    installation_cleanup_commands = "rm -rf /var/lib/apt/lists/*",
+    output_image_name = "nginx_image",
 )
 
 container_image(
@@ -23,8 +23,8 @@ container_image(
 )
 
 container_bundle(
-  name = "bundle",
-  images = {
-    "nginx_bazel:latest": ":release_image",
-  },
+    name = "bundle",
+    images = {
+        "nginx_bazel:latest": ":release_image",
+    },
 )
