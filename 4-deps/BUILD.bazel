@@ -1,0 +1,4 @@
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix github.com/tokibi/bazel-tutorial/4-deps
+gazelle(name = "gazelle")
