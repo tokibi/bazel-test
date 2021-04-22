@@ -1,4 +1,4 @@
-# bazel-test
+# bazel-tutorial
 
 ## Installation
 
